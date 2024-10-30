@@ -21,7 +21,6 @@ class MainActivity : ComponentActivity() {
             EmpatTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     LatihanInput(
-                        name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

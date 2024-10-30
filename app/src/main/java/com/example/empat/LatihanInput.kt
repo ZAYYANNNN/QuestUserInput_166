@@ -1,6 +1,7 @@
 package com.example.empat
 
 import android.R
+import android.text.Layout
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,7 +34,7 @@ import java.nio.file.WatchEvent
 
 @Preview(showBackground = true)
 @Composable
-fun LatihanInput() {
+fun LatihanInput(modifier: Modifier = Modifier) {
 
     var nama by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -68,30 +69,17 @@ fun LatihanInput() {
             }
 
         )
-        TextField(
-            value = nama,
-            onValueChange = {nama = it},
-            modifier = Modifier.fillMaxWidth(),
-            label = {
-                Text("Nama")
 
-            },
-            placeholder = {
-                Text("Masukkan Nama Anda")
-            }
-
-        )
 
         Row {
-            dataJK.forEach{selectedJK ->
-                 Row(verticalAlignment = Alignment.CenterHorizontally) {
-                    RadioButton(selected = Jeniskelamin== selectedJK,
-                        OnClick = {
+            dataJK.forEach { selectedJK ->
+                Row (verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = Jeniskelamin == selectedJK,
+                        onClick = {
                             Jeniskelamin = selectedJK
-
                         })
-                Text(selectedJK)
-            }
+                    Text(selectedJK)
+                }
             }
         }
         TextField(
